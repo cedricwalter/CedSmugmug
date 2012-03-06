@@ -1,0 +1,28 @@
+July 7, 2009 - List of fixes and enhancements from Ed Henderson <ed@henderland.net>:
+
+Bug fixes:
+1. Fixed malformed image URL (had double-quote at the end and not at the start so didn't display properly in lightbox)
+2. Fixed problem with "@" and single-quote in captions (this broke the php code)
+3. Fixed $library not being passed thru to rss_parse function (this caused the image to not be viewed via lightbox)
+
+
+Enhancements:
+1. Specify the thumbnail size in pixels
+2. Specify if square thumbnail or maintain aspect ratio (if not square then thumbnail size just specifies the height)
+3. Now recognize multiple {rss...} tags in a single article.
+4. Specify thumbnail size and square thumbnail in {rss... size=90 square=yes|no} tag to override system-wide defaults. Or if tag element left blank i.e. "ulimit=" then defaults to system default.
+5. Specify thumbnail border width in pixels
+6. Added special section in the code for Picasa so that viewing largest image (800px) could be possible.
+7. Added more verbiage to photofeed.xml to help with plugin usage.
+
+
+Future enhancements to do:
+1. Recognize single and/or double quotes in {rss..} tag
+2. No order to tag elements - i.e. size=75 could come first in the {rss...} tag
+3. If tag element missing then just take default - at this time all tag elements must be in the tag to work
+4. Ability to choose size of image to view - now defaults to largest for Picasa.
+
+
+Testing: Note that I have tested these changes on Picasa only.  I believe it will work with the other photo sites as I made changes to their code for any enhancements I added.
+
+

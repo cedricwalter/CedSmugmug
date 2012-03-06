@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="editors-xtd" method="upgrade">
+    <name>Button - photofeed</name>
+    <creationDate>February 2012</creationDate>
+    <author>CedricWalter</author>
+    <authorEmail>support@waltercedric.com</authorEmail>
+    <authorUrl>www.waltercedric.com</authorUrl>
+    <copyright>(c) 2008-20012 waltercedric. All rights reserved.</copyright>
+    <license>GPL</license>
+    <version>2.5.1</version>
+    <description>This is an Editor Button to allow entering photofeed easily</description>
+    <files>
+        <filename plugin="photofeed">photofeed.php</filename>
+		<filename plugin="photofeed">index.html</filename>
+    </files>
+</extension>

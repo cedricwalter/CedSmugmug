@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="editors-xtd" method="upgrade">
+    <name>Button - smugmugslideshow</name>
+    <creationDate>February 2012</creationDate>
+    <author>CedricWalter</author>
+    <authorEmail>support@waltercedric.com</authorEmail>
+    <authorUrl>www.waltercedric.com</authorUrl>
+    <copyright>(c) 2008-20012 waltercedric. All rights reserved.</copyright>
+    <license>GPL</license>
+    <version>2.5.1</version>
+    <description>This is an Editor Button to allow entering smugmug slideshow easily</description>
+    <files>
+        <filename plugin="smugmugslideshow">smugmugslideshow.php</filename>
+		<filename plugin="smugmugslideshow">index.html</filename>
+    </files>
+</extension>

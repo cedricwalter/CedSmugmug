@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="1.6" client="site" method="upgrade">
+    <name>Smugmug Slideshow</name>
+    <creationDate>June 2010</creationDate>
+    <author>Cedric Walter</author>
+    <authorEmail>cedric.walter@gmail.com</authorEmail>
+    <authorUrl>http://www.waltercedric.com</authorUrl>
+    <copyright>(C) 2010 Copyright Info</copyright>
+    <license>GNU/GPL v3</license>
+    <version>2.5.1</version>
+    <description>SMUGMUG_SLIDESHOW_XML_DESCRIPTION</description>
+
+
+    <languages>
+        <language tag="en-GB">en-GB.mod_smugmugslideshow.ini</language>
+    </languages>
+
+    <files>
+        <filename module="mod_smugmugslideshow">mod_smugmugslideshow.php</filename>
+		<filename>index.html</filename>
+    </files>
+
+    <updateservers>
+        <server type="extension" priority="1" name="Extension Update Site">http://www.waltercedric.com/update/modules/mod_smugmugslideshow/extension.xml</server>
+        <server type="collection" priority="2" name="Collection Update Site">http://www.waltercedric.com/update/update.xml</server>
+    </updateservers>
+
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+
+                <field name="height" type="text" default="600" label="Height"
+                       description="Height of widget"></field>
+                <field name="width" type="text" default="600" label="Width"
+                       description="Width of widget"></field>
+
+
+                <field name="howSpeed" type="radio" default="1" label="howSpeed"
+                       description="Display the slow/med/fast speed options">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+                <field name="autoStart" type="radio" default="1" label="autoStart"
+                       description="Start playing the slideshow as soon as its loaded OR don't start until they click the show">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+                <field name="captions" type="radio" default="1" label="captions"
+                       description="Display image captions within the slideshow">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+                <field name="showLogo" type="radio" default="1" label="showLogo"
+                       description="Show our smugmug logo in the corner of the slideshow">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+                <field name="clickToImage" type="radio" default="0"
+                       label="clickToImage"
+                       description="Clicking on the image shown in the slideshow will take you to the image in its gallery">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+                <field name="splashurl" type="text"
+                       default="http://www.smugmug.com/img/ria/ShizamSlides/smugmug_black.png"
+                       label="splashurl" description="Url to an image you want to set as your splash image"></field>
+                <field name="splashDelay" type="text" default="1000" label="splashDelay"
+                       description="The amount of time to have to splash show in milliseconds."></field>
+
+                <field name="showThumbs" type="radio" default="1" label="showThumbs"
+                       description="Show thumbnails">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+
+                <field name="albumID" type="text" default="7421071" label="AlbumID"
+                       description="ID of album to show photos from
+          -> The album ID is located in the URL when viewing any of your albums, for instance in the url http://cmac.smugmug.com/gallery/2504559_f3ta9#131481399, the album id is the set of numbers after /gallery/ and before the #-symbol followed by the ImageID - in this example the AlbumID is 2504559
+          -> SEMI-REQUIRED You must either provide an AlbumID OR a feedURL as below or nothing works."></field>
+
+                <field name="albumKey" type="text" default="53xgf" label="AlbumKey"
+                       description="Key of album to show photos from
+          The album key is located in the URL when viewing any of your albums, for instance in the url http://cmac.smugmug.com/gallery/2504559_f3ta9#131481399, the album key is the string of characters after /gallery/2504559_ and before the #-symbol followed by the ImageID - in this example the AlbumKey is f3ta9
+          SEMI-REQUIRED You must either provide an AlbumID and AlbumKey OR a feedURL as below or nothing works."></field>
+
+                <field name="showStartButton" type="radio" default="1"
+                       label="showStartButton" description="Whether a play/pause button shows">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+
+                <field name="showButtons" type="radio" default="1" label="showButtons"
+                       description="Whether to show any play/pause/next buttons">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+                <field name="transparent" type="radio" default="1" label="transparent"
+                       description="This should just always be true, its if the slideshow is transparent or not, can also bgColor otherwise">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+                <field name="bgColor" type="text" default="000000" label="bgColor"
+                       description="Specify a background color for the slideshow as opposed to being transparent."></field>
+                <field name="crossFadeSpeed" type="text" default="350"
+                       label="crossFadeSpeed" description="The speed (in ms) of the crossfade."></field>
+
+                <field name="feedURL" type="text" default="" label="feedURL"
+                       description="feed url to use; must be api.smugmug.com instead of nickname.smugmug.com"></field>
+
+                <field name="randomStart" type="radio" default="0" label="randomStart"
+                       description="Leaves the images in the original order but starts at a random location">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+
+                <field name="randomize" type="radio" default="0" label="randomize"
+                       description="Shuffles the order of images in the slideshow and starts at the beginning">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+
+                <!--
+                            * clickUrl: '<blank>/false/<url>' o What url clicking on the
+                            slideshow send you to o Default: blank o blank = clicking goes
+                            nowhere o url = clicking goes to that url
+                        -->
+                <field name="borderThickness" type="text" default="1"
+                       label="borderThickness" description="Thickness of the border around each image"></field>
+                <field name="borderColor" type="text" default="FF0000" label="borderColor"
+                       description="Specify the color of the border. Both borderThickness AND borderColor must be specified for the border to show"></field>
+
+                <field name="forceSize" type="radio" default="TinyURL" label="forceSize"
+                       description="Force the slideshow to use a standard sized photo regardless of slideshow size">
+                    <option value="TinyURL">TinyURL</option>
+                    <option value="ThumbURL">ThumbURL</option>
+                    <option value="SmallURL">SmallURL</option>
+                    <option value="MediumURL">MediumURL</option>
+                    <option value="LargeURL">LargeURL</option>
+                    <option value="OriginalURL">OriginalURL</option>
+                </field>
+
+                <field name="borderCornerStyle" type="radio" default="rounded"
+                       label="borderCornerStyle" description="Sets the border style if using borders">
+                    <option value="square">square</option>
+                    <option value="rounded">rounded</option>
+                </field>
+
+                <field name="imgAlign" type="radio" default=" " label="imgAlign"
+                       description="Aligns the displayed image at the top of the slideshow area">
+                    <option value="top">top</option>
+                    <option value=" ">Default</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+
+</extension>
+
+

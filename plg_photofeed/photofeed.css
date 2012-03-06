@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+.photofeed {
+
+}
+
+.photofeedLine {
+    margin-bottom: 2px;
+}
+
+.photofeedTitle {
+
+}
+
+.photofeedClear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.photofeedImage {
+    margin-left: 2px;
+    float: left;
+    margin-bottom: 2px;
+    border: #C2C2C2 solid 1px;
+    cursor: pointer;
+    outline-color: #A1A5A9;
+    outline-width: 1px;
+}
+
+.photofeedBody {
+    display: block;
+}
+
+.photofeedGallery {
+    font-size: 11px;
+    font-style: italic;
+    color: gray;
+    float: center;
+}
