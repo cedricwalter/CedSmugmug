@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="2.5" type="plugin" group="content">
+<extension version="2.5" type="plugin" group="content" method="upgrade">
 	<name>PLG_CONTENT_SMUGMUGSLIDESHOW</name>
+    <element>smugmugslideshow</element>
 	<creationDate>28 March 2011</creationDate>
 	<author>Cedric Walter</author>
 	<authorEmail>cedric.walter@gmail.com</authorEmail>
@@ -10,9 +11,6 @@
 	<description>PLG_CONTENT_SMUGMUGSLIDESHOW_DESCRIPTION</description>
 	<version>2.5.1</version>
 
-
-	
-
   <files>
     <filename plugin="smugmugslideshow">smugmugslideshow.php</filename>
 	<folder>language</folder>
@@ -20,8 +18,8 @@
   </files> 
   
   	<updateservers>
-		<server type="extension" priority="1" name="Extension Update Site">http://www.waltercedric.com/update/plugins/smugmugslideshow/extension.xml</server>
-		<server type="collection" priority="2" name="Collection Update Site">http://www.waltercedric.com/update/update.xml</server>
+		<server type="extension" priority="1" name="Extension Update Site">http://updates.waltercedric.com/plugins/smugmugslideshow/extension.xml</server>
+		<server type="collection" priority="2" name="Collection Update Site">http://updates.waltercedric.com/update.xml</server>
 	</updateservers>
   
 	<config>

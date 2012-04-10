@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="editors-xtd" method="upgrade">
     <name>Button - smugmugrandom</name>
+    <element>plg_editors-xtd_smugmugrandom</element>
     <creationDate>February 2012</creationDate>
     <author>CedricWalter</author>
     <authorEmail>support@waltercedric.com</authorEmail>
@@ -13,4 +14,10 @@
         <filename plugin="smugmugrandom">smugmugrandom.php</filename>
 		<filename plugin="smugmugrandom">index.html</filename>
     </files>
+
+    <updateservers>
+    		<server type="extension" priority="1" name="Extension Update Site">http://updates.waltercedric.com/plugins/plg_editors-xtd_smugmugrandom/extension.xml</server>
+    		<server type="collection" priority="2" name="Collection Update Site">http://updates.waltercedric.com/update.xml</server>
+    </updateservers>
+
 </extension>

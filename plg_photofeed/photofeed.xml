@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="2.5" type="plugin" group="content">
+<extension version="2.5" type="plugin" group="content" method="upgrade">
     <name>Content - photoFEED</name>
+    <element>photofeed</element>
     <creationDate>June 2009</creationDate>
     <author>Cedric Walter</author>
     <authorEmail>cedric.walter@gmail.com,Ed@Henderson.net</authorEmail>
@@ -23,12 +24,8 @@
     </files>
 
     <updateservers>
-        <server type="extension" priority="1" name="Extension Update Site"
-                >http://www.waltercedric.com/update/plugins/photofeed/extension.xml
-        </server>
-        <server type="collection" priority="2" name="Collection Update Site"
-                >http://www.waltercedric.com/update/update.xml
-        </server>
+        <server type="extension" priority="1" name="Extension Update Site">http://updates.waltercedric.com/plugins/photofeed/extension.xml</server>
+        <server type="collection" priority="2" name="Collection Update Site">http://updates.waltercedric.com/update.xml</server>
     </updateservers>
 
 

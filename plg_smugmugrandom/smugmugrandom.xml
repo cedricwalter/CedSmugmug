@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="2.5" type="plugin" group="content">
+<extension version="2.5" type="plugin" group="content" method="upgrade">
 	<name>Content - smugmugrandom</name>
+    <element>smugmugrandom</element>
 	<creationDate>28 March 2011</creationDate>
 	<author>Cedric Walter</author>
 	<authorEmail>cedric.walter@gmail.com</authorEmail>
@@ -9,9 +10,6 @@
 	<license>GNU/GPL</license>
 	<description>PLG_CONTENT_SMUGMUGRANDOM_DESCRIPTION</description>
 	<version>2.5.1</version>
-
-
-
 
 	<languages>
 		<language tag="en-GB">en-GB.plg_content_smugmugrandom.ini</language>
@@ -28,8 +26,8 @@
 	</media>
 	
 	<updateservers>
-		<server type="extension" priority="1" name="Extension Update Site">http://www.waltercedric.com/update/plugins/smugmugrandom/extension.xml</server>
-		<server type="collection" priority="2" name="Collection Update Site">http://www.waltercedric.com/update/update.xml</server>
+		<server type="extension" priority="1" name="Extension Update Site">http://updates.waltercedric.com/plugins/smugmugrandom/extension.xml</server>
+		<server type="collection" priority="2" name="Collection Update Site">http://updates.waltercedric.com/update.xml</server>
 	</updateservers>
 	
 	<config>

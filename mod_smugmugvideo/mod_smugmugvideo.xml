@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extension type="module" version="1.6" client="site" method="upgrade">
+<extension type="module" version="2.5" client="site" method="upgrade">
 	<name>Smugmug Video Viewer</name>
+    <element>mod_smugmugvideo</element>
 	<creationDate>June 2010</creationDate>
 	<author>Cedric Walter</author>
 	<authorEmail>cedric.walter@gmail.com</authorEmail>
@@ -27,9 +28,9 @@
 
 
 	<updateservers>
-		<server type="extension" priority="1" name="Extension Update Site">http://www.waltercedric.com/update/modules/mod_smugmugvideo/extension.xml
+		<server type="extension" priority="1" name="Extension Update Site">http://updates.waltercedric.com/modules/mod_smugmugvideo/extension.xml
 		</server>
-		<server type="collection" priority="2" name="Collection Update Site">http://www.waltercedric.com/update/update.xml
+		<server type="collection" priority="2" name="Collection Update Site">http://updates.waltercedric.com/update.xml
 		</server>
 	</updateservers>
 
