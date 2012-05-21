@@ -8,7 +8,7 @@
     <authorUrl>www.waltercedric.com</authorUrl>
     <copyright>(c) 2008-20012 waltercedric. All rights reserved.</copyright>
     <license>GPL</license>
-    <version>2.5.1</version>
+    <version>2.5.3</version>
     <description>This is an Editor Button to allow entering smugmug random pcitures easily</description>
     <files>
         <filename plugin="smugmugrandom">smugmugrandom.php</filename>

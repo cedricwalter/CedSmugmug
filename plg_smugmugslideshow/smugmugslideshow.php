@@ -31,6 +31,9 @@ define('SMUGMUG_SLIDESHOW_REGEX_ALBUMKEY', "key=(.*)\s*");
 
 define('SMUGMUG_SLIDESHOW_REGEX_PATTERN',"~{smugmugslideshow\s*".SMUGMUG_SLIDESHOW_REGEX_URL.SMUGMUG_SLIDESHOW_REGEX_ALBUMID.SMUGMUG_SLIDESHOW_REGEX_ALBUMKEY."}~iU");
 
+define('SMUGMUG_SLIDESHOW_PLUGIN_REGEX_PATTERN', "#{smugmugslideshow(.*?)}#s");
+
+
 class plgContentSmugmugSlideshow extends JPlugin
 {
 	
@@ -49,55 +52,63 @@ class plgContentSmugmugSlideshow extends JPlugin
 	}
 
 	public function onContentPrepare($context, &$row, &$params, $page = 0)
-	{ 
-		$pluginparams 	= new JParameter(JPluginHelper::getPlugin('content', 'smugmugslideshow')->params);
-		
-		//Escape fast
-		if (!$pluginparams->get('enabled', 1)) {
-			return true;
-		}
-		
+	{
+        //Escape fast
+        if (!$this->params->get('enabled', 1)) {
+            return true;
+        }
+
 		//simple performance check to determine whether bot should process further
 		if ( strpos( $row->text, '{smugmugslideshow' ) === false) {
 			return true;
 		}
 		
-		preg_match_all(SMUGMUG_SLIDESHOW_REGEX_PATTERN, $row->text, $matches);
+		preg_match_all(SMUGMUG_SLIDESHOW_PLUGIN_REGEX_PATTERN, $row->text, $matches);
 
-		// catch and display multiple {smumugrandom...} tags in the same page
-		for ($i = 0; $i < count($matches[0]); $i++) {
-				
-			//read but not all value may be set
-			$url = (string) $matches[1][$i];
-			$id = $matches[2][$i];
-			$key = $matches[3][$i];
-			
-			//if url do not contains the word smumug.com then fallback to default to block script inclusion
-			if (empty($url) || ($url != null && strstr($url, 'smugmug.com') == false)) {
-				$url = $this->defaultUrl;
-			}
-			if (empty($id)) {
-				$id = $this->defaultId;
-			}
-			if (empty($key)) {
-				$key = $this->defaultKey;
-			}
-						
-			//costly operations get their content cached
-			//$cache = & JFactory :: getCache('plgContentSmugmugSlideshow');
-			//$cache->setCaching(intval($params->get('cache','1')));
-			//$html = $cache->   call(array( 'plgContentSmugmugSlideshow', 'init'), $url, $id, $key, $params);
 
-			$html = plgContentSmugmugSlideshow::init($url, $id, $key);
-			
-			$row->text = str_replace($matches[0][$i], $html, $row->text);
-		}
+        // Number of plugins
+        $count = count($matches[0]);
+
+        // plugin only processes if there are any instances of the plugin in the text
+        if ($count) {
+            for ($i = 0; $i < $count; $i++)
+            {
+                $theuri = '';
+                $theid = '';
+                $thekey = '';
+
+                if (@$matches[1][$i]) {
+                    $inline_params = $matches[1][$i];
+                    $result = array();
+                    $pairs = explode(' ', trim($inline_params));
+                    foreach ($pairs as $pair) {
+                        $pos = strpos($pair, "=");
+                        $key = substr($pair, 0, $pos);
+                        $value = substr($pair, $pos + 1);
+                        $result[$key] = $value;
+                    }
+
+                    if (isset($result['uri'])) {
+                        $url = trim($result['uri']);
+                    }
+                    if (isset($result['id'])) {
+                        $albumID = trim($result['id']);
+                    }
+                    if (isset($result['key'])) {
+                        $albumKey = trim($result['key']);
+                    }
+
+                    $html = plgContentSmugmugSlideshow::init($theuri, $albumID, $albumKey);
+                    $row->text = str_replace($matches[0][$i], $html, $row->text);
+                }
+            }
+        }
 
 		return true;
 	}
 
 
-	public static function init($url, $id, $key) {
+	public static function init($url, $albumID, $albumKey) {
 		$params 	= new JParameter(JPluginHelper::getPlugin('content', 'smugmugslideshow')->params);
 		$debug= intval($params->get('debug','1'));
 
@@ -110,14 +121,14 @@ class plgContentSmugmugSlideshow extends JPlugin
 		$clickToImage  	 = $params->get('clickToImage') == 1 ? 'true' : 'false';
 		$splashurl      	 = $params->get('splashurl', 'http://www.smugmug.com/img/ria/ShizamSlides/smugmug_black.png');
 		$showThumbs     	 = $params->get('showThumbs') == 1 ? 'true' : 'false';
-		$albumID        	 = $params->get('albumID');
-		$albumKey       	 = $params->get('albumKey');
+		$albumID        	 = isset($albumID) ? $albumID :$params->get('albumID');
+		$albumKey       	 = isset($albumKey) ? $albumKey :$params->get('albumKey');
 		$showStartButton   = $params->get('showStartButton') == 1 ? 'true' : 'false';
 		$showButtons       = $params->get('showButtons') == 1 ? 'true' : 'false';
 		$transparent       = $params->get('transparent') == 1 ? 'true' : 'false';
 		$bgColor           = $params->get('bgColor');
 		$crossFadeSpeed    = $params->get('crossFadeSpeed');
-		$feedURL           = urlencode($params->get('feedURL'));
+		$feedURL           = isset($url) ? $url : urlencode($params->get('feedURL'));
 		$randomStart       = $params->get('randomStart') == 1 ? 'true' : 'false';
 		$randomize         = $params->get('randomize') == 1 ? 'true' : 'false';
 		$borderThickness   = $params->get('borderThickness');

@@ -10,7 +10,7 @@
     <creationDate>Dec 2011</creationDate>
     <copyright>Copyright (C) 2011 waltercedric.com All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
-    <version>2.5.1</version>
+    <version>2.5.3</version>
     <description>Package Cedric Walter Smugmug</description>
     <scriptfile>install.script.php</scriptfile>
 
@@ -19,8 +19,8 @@
     </files>
     	
     <cogs>
-        <cog type="component" client="site" access="0" enabled="true" protected="false" remove_admin_menu="true">
-		com_cedsmugmug
+        <cog type="component" client="administrator" access="0" enabled="true" protected="false">
+		com_cedSmugmug
 	 	<name>CED Smugmug</name>
 	</cog>
     

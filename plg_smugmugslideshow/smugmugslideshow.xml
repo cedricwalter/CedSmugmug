@@ -9,18 +9,13 @@
 	<copyright>Cedric Walter</copyright>
 	<license>GNU/GPL</license>
 	<description>PLG_CONTENT_SMUGMUGSLIDESHOW_DESCRIPTION</description>
-	<version>2.5.1</version>
+	<version>2.5.3</version>
 
   <files>
     <filename plugin="smugmugslideshow">smugmugslideshow.php</filename>
 	<folder>language</folder>
 	<filename>index.html</filename>
-  </files> 
-  
-  	<updateservers>
-		<server type="extension" priority="1" name="Extension Update Site">http://updates.waltercedric.com/plugins/smugmugslideshow/extension.xml</server>
-		<server type="collection" priority="2" name="Collection Update Site">http://updates.waltercedric.com/update.xml</server>
-	</updateservers>
+  </files>
   
 	<config>
 		<fields name="params">

@@ -8,7 +8,7 @@
 	<authorUrl>http://www.waltercedric.com</authorUrl>
 	<copyright>(C) 2010 Copyright Info</copyright>
 	<license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
-	<version>2.5.1</version>
+	<version>2.5.3</version>
 	<description>MOD_SMUGMUG_VIDEO_XML_DESCRIPTION</description>
 	<scriptfile>twitterbadge.scriptfile.php</scriptfile>
 
@@ -25,14 +25,6 @@
 	<languages>
 		<language tag="en-GB">en-GB.mod_smugmugvideo.ini</language>
 	</languages>
-
-
-	<updateservers>
-		<server type="extension" priority="1" name="Extension Update Site">http://updates.waltercedric.com/modules/mod_smugmugvideo/extension.xml
-		</server>
-		<server type="collection" priority="2" name="Collection Update Site">http://updates.waltercedric.com/update.xml
-		</server>
-	</updateservers>
 
 	<config>
 		<fields name="params">
