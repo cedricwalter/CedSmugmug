@@ -20,7 +20,7 @@
     	
     <cogs>
         <cog type="component" client="administrator" access="0" enabled="true" protected="false">
-		com_cedSmugmug
+		com_cedsmugmug
 	 	<name>CED Smugmug</name>
 	</cog>
     
