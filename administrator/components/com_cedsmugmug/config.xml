@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+    <fieldset name="Themes" label="Themes">
+
+        <field name="APIKey" type="text" size="20" default="" label="APIKey"
+               description="This is the API key you have obtained for your application from http://www.smugmug.com/hack/apikeys">
+        </field>
+
+        <field name="OAuthSecret" type="text" size="20" default="" label="OAuthSecret"
+               description="This is the secret assigned to your API key and is displayed in the Settings tab of the SmugMug Control Panel. If no secret is displayed, select 'change' next to the API key your application will use and click 'save'. A secret will be generated for you.">
+        </field>
+    </fieldset>
+
+</config>

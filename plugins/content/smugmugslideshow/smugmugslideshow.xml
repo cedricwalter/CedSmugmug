@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="content" method="upgrade">
+    <name>PLG_CONTENT_SMUGMUGSLIDESHOW</name>
+    <element>smugmugslideshow</element>
+    <creationDate>28 March 2011</creationDate>
+    <author>Cedric Walter</author>
+    <authorEmail>cedric.walter@gmail.com</authorEmail>
+    <authorUrl>http://www.waltercedric.com</authorUrl>
+    <copyright>Cedric Walter</copyright>
+    <license>GNU/GPL</license>
+    <description>PLG_CONTENT_SMUGMUGSLIDESHOW_DESCRIPTION</description>
+    <version>2.6.2</version>
+
+    <files>
+        <filename plugin="smugmugslideshow">smugmugslideshow.php</filename>
+        <folder>language</folder>
+        <filename>index.html</filename>
+    </files>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+
+                <field name="height" type="text" default="600" label="PLG_CONTENT_SMUGMUGSLIDESHOW_HEIGHT"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_HEIGHT_DESC"></field>
+                <field name="width" type="text" default="600" label="PLG_CONTENT_SMUGMUGSLIDESHOW_WIDTH"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_WIDTH_DESC"></field>
+
+                <field name="howSpeed" type="radio" default="1" label="PLG_CONTENT_SMUGMUGSLIDESHOW_HOWSPEED"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_HOWSPEED_DESC" class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="autoStart" type="radio" default="1" label="PLG_CONTENT_SMUGMUGSLIDESHOW_AUTOSTART"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_AUTOSTART_DESC" class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="captions" type="radio" default="1" label="PLG_CONTENT_SMUGMUGSLIDESHOW_CAPTIONS"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_CAPTIONS_DESC" class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="showLogo" type="radio" default="1" label="PLG_CONTENT_SMUGMUGSLIDESHOW_SHOWLOGO"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_SHOWLOGO_DESC" class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="clickToImage" type="radio" default="0" label="PLG_CONTENT_SMUGMUGSLIDESHOW_CLICKTOIMAGE"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_CLICKTOIMAGE_DESC" class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="splashurl" type="text" default="http://www.smugmug.com/img/ria/ShizamSlides/smugmug_black.png"
+                       label="PLG_CONTENT_SMUGMUGSLIDESHOW_SPLASHURL" description="PLG_CONTENT_SMUGMUGSLIDESHOW_SPLASHURL_DESC"></field>
+                <field name="splashDelay" type="text" default="1000" label="PLG_CONTENT_SMUGMUGSLIDESHOW_SPLASHDELAY"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_SPLASHDELAY_DESC"></field>
+
+                <field name="showThumbs" type="radio" default="1" label="PLG_CONTENT_SMUGMUGSLIDESHOW_SHOWTHUMBS"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_SHOWTHUMBS_DESC"
+                       class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="albumID" type="text" default="7421071" label="PLG_CONTENT_SMUGMUGSLIDESHOW_ALBUMID"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_ALBUMID_DESC"></field>
+
+                <field name="albumKey" type="text" default="53xgf" label="PLG_CONTENT_SMUGMUGSLIDESHOW_ALBUMKEY"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_ALBUMKEY_DESC"></field>
+
+                <field name="showStartButton" type="radio" default="1" label="PLG_CONTENT_SMUGMUGSLIDESHOW_SHOWSTARTBUTTON"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_SHOWSTARTBUTTON_DESC" class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="showButtons" type="radio" default="1" label="PLG_CONTENT_SMUGMUGSLIDESHOW_SHOWBUTTONS"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_SHOWBUTTONS_DESC" class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="transparent" type="radio" default="1" label="PLG_CONTENT_SMUGMUGSLIDESHOW_TRANSPARENT"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_TRANSPARENT_DESC" class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="bgColor" type="text" default="000000" label="PLG_CONTENT_SMUGMUGSLIDESHOW_BGCOLOR"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_BGCOLOR_DESC"></field>
+                <field name="crossFadeSpeed" type="text" default="350" label="PLG_CONTENT_SMUGMUGSLIDESHOW_CROSSFADESPEED"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_CROSSFADESPEED_DESC"></field>
+
+                <field name="feedURL" type="text" default="" label="PLG_CONTENT_SMUGMUGSLIDESHOW_FEEDURL"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_FEEDURL_DESC"></field>
+
+                <field name="randomStart" type="radio" default="0" label="PLG_CONTENT_SMUGMUGSLIDESHOW_RANDOMSTART"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_RANDOMSTART_DESC" class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field name="randomize" type="radio" default="0" label="PLG_CONTENT_SMUGMUGSLIDESHOW_RANDOMIZE"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_RANDOMIZE_DESC"
+                       class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <!--
+                * clickUrl: '<blank>/false/<url>'
+                      o What url clicking on the slideshow send you to
+                      o Default: blank
+                      o blank = clicking goes nowhere
+                      o url = clicking goes to that url
+            -->
+                <field name="borderThickness" type="text" default="1" label="PLG_CONTENT_SMUGMUGSLIDESHOW_BORDERTHICKNESS"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_BORDERTHICKNESS_DESC"></field>
+                <field name="borderColor" type="text" default="FF0000" label="PLG_CONTENT_SMUGMUGSLIDESHOW_BORDERCOLOR"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_BORDERCOLOR_DESC"></field>
+
+                <field name="forceSize" type="radio" default="TinyURL" label="PLG_CONTENT_SMUGMUGSLIDESHOW_FORCESIZE"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_FORCESIZE_DESC">
+                    <option value="TinyURL">PLG_CONTENT_SMUGMUGSLIDESHOW_TINYURL</option>
+                    <option value="ThumbURL">PLG_CONTENT_SMUGMUGSLIDESHOW_THUMBURL</option>
+                    <option value="SmallURL">PLG_CONTENT_SMUGMUGSLIDESHOW_SMALLURL</option>
+                    <option value="MediumURL">PLG_CONTENT_SMUGMUGSLIDESHOW_MEDIUMURL</option>
+                    <option value="LargeURL">PLG_CONTENT_SMUGMUGSLIDESHOW_LARGEURL</option>
+                    <option value="OriginalURL">PLG_CONTENT_SMUGMUGSLIDESHOW_ORIGINALURL</option>
+                </field>
+
+                <field name="borderCornerStyle" type="radio" default="rounded" label="PLG_CONTENT_SMUGMUGSLIDESHOW_BORDERCORNERSTYLE"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_BORDERCORNERSTYLE_DESC">
+                    <option value="square">PLG_CONTENT_SMUGMUGSLIDESHOW_SQUARE</option>
+                    <option value="rounded">PLG_CONTENT_SMUGMUGSLIDESHOW_ROUNDED</option>
+                </field>
+
+                <field name="imgAlign" type="radio" default=" " label="PLG_CONTENT_SMUGMUGSLIDESHOW_IMGALIGN"
+                       description="PLG_CONTENT_SMUGMUGSLIDESHOW_IMGALIGN_DESC">
+                    <option value="top">PLG_CONTENT_SMUGMUGSLIDESHOW_TOP</option>
+                    <option value=" ">PLG_CONTENT_SMUGMUGSLIDESHOW_DEFAULT</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
+
