@@ -14,6 +14,8 @@ CedSmugmug add support for SmugMug in [Joomla!](https://www.joomla.org).
 * Thumbnail size, style
 and more
 
+[More details](https://www.galaxiis.com/cedsmugmug-showcase/) 
+
 ## Demo
 [https://www.galaxiis.com/cedsmugmug-demo/](https://www.galaxiis.com/cedsmugmug-demo/)
 
