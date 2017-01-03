@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="plugin" group="content" method="upgrade">
+    <name>CedSmugmugRandom | Galaxiis.com</name>
+    <creationDate>2016-12-31</creationDate>
+
+    <version>3.0.1</version>
+
+    <author>Galaxiis</author>
+    <authorEmail>galaxiiscom@gmail.com</authorEmail>
+    <authorUrl>www.galaxiis.com</authorUrl>
+
+    <copyright>Copyright (C) 2013-2016 galaxiis.com All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL 3.0</license>
+
+    <description>PLG_CONTENT_CEDSMUGMUGRANDOM_DESCRIPTION</description>
+
+    <files>
+        <filename plugin="cedsmugmugrandom">cedsmugmugrandom.php</filename>
+        <filename plugin="cedsmugmugrandom">cedsmugmugrandomparser.php</filename>
+        <folder>language</folder>
+    </files>
+
+    <media destination="plg_content_cedsmugmugrandom" folder="plg_content_cedsmugmugrandom">
+        <filename>plgcedsmugmugrandom.css</filename>
+        <filename>index.html</filename>
+    </media>
+
+    <config addfieldpath="libraries/galaxiis/fields">
+        <fields name="params">
+            <fieldset name="basic">
+                <field shortId="cedsmugmug"
+                       name="toolbar"
+                       type="galaxiisbar"/>
+                <field
+                        name="message"
+                        type="galaxiismessage"
+                        message="note"
+                        label="Please help us: vote, suggest and give us your opinion in the Joomla extensions directory. With this you will help us to increase our interest to modify and update the extension. Thank you very much."/>
+                <field
+                        name="version_msg"
+                        type="galaxiismessage"
+                        message="version"
+                        version="3.0.1"
+                        extension_name="CedSmugMug"/>
+            </fieldset>
+
+        </fields>
+    </config>
+</extension>

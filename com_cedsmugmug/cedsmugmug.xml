@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.4" method="upgrade">
+    <name>com_cedsmugmug</name>
+    <creationDate>2016-12-31</creationDate>
+
+    <author>Galaxiis</author>
+    <authorEmail>galaxiiscom@gmail.com</authorEmail>
+    <authorUrl>www.galaxiis.com</authorUrl>
+
+    <version>3.0.1</version>
+
+    <copyright>Copyright (C) 2013-2016 galaxiis.com All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL 3.0</license>
+
+    <description>A set of modules, plugins extensions for SmugMug the famous paid digital photo sharing website</description>
+
+    <files folder="components/com_cedsmugmug">
+        <file>index.html</file>
+    </files>
+
+    <languages folder="language/en-GB">
+        <language tag="en-GB">en-GB.com_cedsmugmug.ini</language>
+    </languages>
+
+    <media destination="com_cedsmugmug" folder="media/com_cedsmugmug">
+        <folder>css</folder>
+        <folder>js</folder>
+        <folder>images</folder>
+        <filename>ShizamSlides-2011042105.swf</filename>
+        <filename>index.html</filename>
+    </media>
+
+    <administration>
+        <menu link="option=com_cedsmugmug">cedSmugMug</menu>
+        <submenu>
+            <menu view="liveupdate" img="../media/com_cedsmugmug/images/live-update.png">Live Update</menu>
+        </submenu>
+
+        <files folder="administrator/components/com_cedsmugmug">
+            <folder>views</folder>
+            <folder>helpers</folder>
+            <folder>liveupdate</folder>
+            <filename>config.xml</filename>
+            <file>cedsmugmug.php</file>
+            <file>controller.php</file>
+            <file>index.html</file>
+        </files>
+        <languages folder="administrator/language/en-GB">
+            <language tag="en-GB">en-GB.com_cedsmugmug.ini</language>
+        </languages>
+    </administration>
+
+</extension>

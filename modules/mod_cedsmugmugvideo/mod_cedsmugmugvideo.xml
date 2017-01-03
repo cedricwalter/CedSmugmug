@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="3.4" client="site" method="upgrade">
+    <name>CedSmugmug Video Viewer | Galaxiis.com</name>
+    <element>mod_cedsmugmugvideo</element>
+    <creationDate>2016-12-31</creationDate>
+
+    <version>3.0.1</version>
+
+    <author>Galaxiis</author>
+    <authorEmail>galaxiiscom@gmail.com</authorEmail>
+    <authorUrl>www.galaxiis.com</authorUrl>
+
+    <copyright>Copyright (C) 2013-2016 galaxiis.com All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL 3.0</license>
+
+    <description>highly customizable module to display video from your SmugMug gallery using Adobe Flash.</description>
+
+    <files>
+        <filename module="mod_cedsmugmugvideo">mod_cedsmugmugvideo.php</filename>
+        <filename module="mod_cedsmugmugvideo">index.html</filename>
+        <folder>tmpl</folder>
+    </files>
+
+    <languages>
+        <language tag="en-GB">en-GB.mod_cedsmugmugvideo.ini</language>
+    </languages>
+
+    <config addfieldpath="libraries/galaxiis/fields">
+        <fields name="params">
+            <fieldset name="basic">
+                <field shortId="cedsmugmug"
+                       name="toolbar"
+                       type="galaxiisbar"/>
+                <field
+                        name="message"
+                        type="galaxiismessage"
+                        message="note"
+                        label="Please help us: vote, suggest and give us your opinion in the Joomla extensions directory. With this you will help us to increase our interest to modify and update the extension. Thank you very much."/>
+                <field
+                        name="version_msg"
+                        type="galaxiismessage"
+                        message="version"
+                        version="3.0.1"
+                        extension_name="CedSmugMug"/>
+
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL"
+                       description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+                <field name="moduleclass_sfx" type="textarea" rows="3" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                       description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+                <field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL"
+                       description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+                <field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                       description="COM_MODULES_FIELD_CACHE_TIME_DESC"/>
+                <field name="cachemode" type="hidden" default="static">
+                    <option value="static"/>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
+

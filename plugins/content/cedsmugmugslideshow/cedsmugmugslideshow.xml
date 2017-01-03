@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="plugin" group="content" method="upgrade">
+    <name>CedSmugmugSlideshow | Galaxiis.com</name>
+    <creationDate>2016-12-31</creationDate>
+
+    <copyright>Copyright (C) 2013-2016 galaxiis.com All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL 3.0</license>
+
+    <version>3.0.1</version>
+
+    <description>PLG_CONTENT_CEDSMUGMUGSLIDESHOW_DESCRIPTION</description>
+
+    <files>
+        <filename plugin="cedsmugmugslideshow">cedsmugmugslideshow.php</filename>
+        <filename plugin="cedsmugmugslideshow">cedsmugmugslideshowparser.php</filename>
+        <folder>language</folder>
+        <filename>index.html</filename>
+    </files>
+
+    <config addfieldpath="libraries/galaxiis/fields">
+        <fields name="params">
+            <fieldset name="basic">
+                <field shortId="cedsmugmug"
+                       name="toolbar"
+                       type="galaxiisbar"/>
+                <field
+                        name="message"
+                        type="galaxiismessage"
+                        message="note"
+                        label="Please help us: vote, suggest and give us your opinion in the Joomla extensions directory. With this you will help us to increase our interest to modify and update the extension. Thank you very much."/>
+                <field
+                        name="version_msg"
+                        type="galaxiismessage"
+                        message="version"
+                        version="3.0.1"
+                        extension_name="CedSmugMug"/>
+
+                <field name="height" type="integer" default="200" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_HEIGHT"
+                       required="true"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_HEIGHT_DESC"
+                       size="4"
+                       first="0"
+                       last="1000"
+                       step="1"/>
+                <field name="width" type="integer" default="200" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_WIDTH"
+                       required="true"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_WIDTH_DESC"
+                       size="4"
+                       first="0"
+                       last="1000"
+                       step="1"/>
+
+                <field name="bgColor" type="color" default="000000" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_BGCOLOR"
+                       required="true"
+                       validate="color"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_BGCOLOR_DESC"/>
+
+            </fieldset>
+            <fieldset name="flashslideshow" label="Flash Slideshow">
+
+                <field name="clickToImage" type="radio" default="0"
+                       label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_CLICKTOIMAGE"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_CLICKTOIMAGE_DESC"
+                       class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="captions" type="radio" default="1" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_CAPTIONS"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_CAPTIONS_DESC"
+                       class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="showThumbs" type="radio" default="1" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_SHOWTHUMBS"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_SHOWTHUMBS_DESC"
+                       class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="autoStart" type="radio" default="1" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_AUTOSTART"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_AUTOSTART_DESC"
+                       class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="showSpeed" type="radio" default="1" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_SHOWSPEED"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_SHOWSPEED_DESC"
+                       class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="pageStyle" type="radio" default="black" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_PAGE_STYLE"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_PAGE_STYLE_DESC"
+                       class="btn-group">
+                    <option value="white">white</option>
+                    <option value="black">black</option>
+                </field>
+                <field name="showButtons" type="radio" default="1" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_SHOWBUTTONS"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_SHOWBUTTONS_DESC"
+                       class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="randomStart" type="radio" default="0" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_RANDOMSTART"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_RANDOMSTART_DESC"
+                       class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="randomize" type="radio" default="0" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_RANDOMIZE"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_RANDOMIZE_DESC"
+                       class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="splashurl" type="text"
+                       default="http://www.smugmug.com/img/ria/ShizamSlides/smugmug_black.png"
+                       label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_SPLASHURL" description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_SPLASHURL_DESC"/>
+                <field name="splashDelay" type="integer" default="1000" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_SPLASHDELAY"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_SPLASHDELAY_DESC"
+                       first="0"
+                       last="1000"
+                       step="1"/>
+                <field name="crossFadeSpeed" type="integer" default="350" required="true" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_CROSSFADESPEED"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_CROSSFADESPEED" size="5"
+                       first="0"
+                       last="10000"
+                       step="50"/>
+                <field name="transparent" type="radio" default="1" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_TRANSPARENT"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_TRANSPARENT_DESC"
+                       class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="borderThickness" type="integer" default="1"
+                       label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_BORDERTHICKNESS"
+                       required="true"
+                       first="0"
+                       last="10"
+                       step="1"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_BORDERTHICKNESS_DESC"/>
+                <field name="borderColor" type="color" default="FF0000" label="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_BORDERCOLOR"
+                       required="true"
+                       validate="color"
+                       description="PLG_CONTENT_CEDSMUGMUGSLIDESHOW_BORDERCOLOR_DESC"/>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
+

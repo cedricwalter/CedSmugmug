@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" version="3.4" client="site" method="upgrade">
+    <name>CedSmugmugGallery | Galaxiis.com</name>
+    <creationDate>2016-12-31</creationDate>
+
+    <version>3.0.1</version>
+
+    <author>Galaxiis</author>
+    <authorEmail>galaxiiscom@gmail.com</authorEmail>
+    <authorUrl>www.galaxiis.com</authorUrl>
+
+    <copyright>Copyright (C) 2013-2016 galaxiis.com All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL 3.0</license>
+
+    <description>MOD_CEDSMUGMUGGALLERY_XML_DESCRIPTION</description>
+
+    <files>
+        <filename module="mod_cedsmugmuggallery">mod_cedsmugmuggallery.php</filename>
+        <filename module="mod_cedsmugmuggallery">index.html</filename>
+        <filename module="mod_cedsmugmuggallery">helper.php</filename>
+        <folder>tmpl</folder>
+    </files>
+
+    <languages>
+        <language tag="en-GB">en-GB.mod_cedsmugmuggallery.ini</language>
+    </languages>
+
+    <config addfieldpath="libraries/galaxiis/fields">
+        <fields name="params">
+            <fieldset name="basic">
+                <field shortId="cedsmugmug"
+                       name="toolbar"
+                       type="galaxiisbar"/>
+                <field
+                        name="message"
+                        type="galaxiismessage"
+                        message="note"
+                        label="Please help us: vote, suggest and give us your opinion in the Joomla extensions directory. With this you will help us to increase our interest to modify and update the extension. Thank you very much."/>
+                <field
+                        name="version_msg"
+                        type="galaxiismessage"
+                        message="version"
+                        version="3.0.1"
+                        extension_name="CedSmugMug"/>
+
+                <field name="userID" type="text"
+                       size="3" required="true"
+                       default="cedricwalter" label="User ID" description="Smugmug user id."/>
+                <field name="gallery" type="text"
+                       size="3" required="true"
+                       default="OpenSuSE" label="Gallery" description="Name of gallery, as seen in url. For example http://cedricwalter.smugmug.com/OpenSuSE"/>
+
+                <field name="viewer" type="radio" default="internal"
+                       label="viewer" description="Image display method: internal, fancybox" class="btn-group">
+                    <option value="internal">internal</option>
+                    <option value="fancybox">fancybox</option>
+                </field>
+            </fieldset>
+            <fieldset name="thumbnails" label="Thumbnails">
+                <field name="thumbnailHeight" type="integer" default="154" label="Thumbnail Height"
+                       description="Thumbnails height in pixels, or 'auto"
+                       first="1"
+                       last="1000"
+                       step="1"/>
+                <field name="thumbnailWidth" type="integer" default="230" label="Thumbnail Width"
+                       description="Thumbnails width in pixels, or 'auto' or 'autoUpScale"
+                       first="1"
+                       last="1000"
+                       step="1"/>
+
+
+                <field name="thumbnailLabel.position" type="radio" default="overImageOnBottom"
+                       label="Thumbnail Label Position" description="" class="btn-group">
+                    <option value="overImageOnBottom">overImageOnBottom</option>
+
+                </field>
+                <field name="thumbnailLabel.display" type="radio" default="true"
+                       label="Thumbnail Label Display" description="Display or hide the label."
+                       class="btn-group">
+                    <option value="false">JNO</option>
+                    <option value="true">JYES</option>
+                </field>
+                <field name="thumbnailLabel.displayDescription" type="radio" default="true"
+                       label="Thumbnail Label Display Description" description="Display or hide the Description."
+                       class="btn-group">
+                    <option value="false">JNO</option>
+                    <option value="true">JYES</option>
+                </field>
+                <field name="thumbnailLabel.titleMaxLength" type="integer" default="0" label="Thumbnail Label Title MaxLength"
+                       description="Title maximum length to display."
+                       first="0"
+                       last="50"
+                       step="1"/>
+                <field name="thumbnailLabel.descriptionMaxLength" type="integer" default="0" label="Thumbnail Label Description MaxLength"
+                       description="Description maximum length to display."
+                       first="0"
+                       last="50"
+                       step="1"/>
+                <field name="thumbnailLabel.hideIcons" type="radio" default="false"
+                       label="Thumbnail Label Display Description" description="Hide thumbnails icons. Default is false."
+                       class="btn-group">
+                    <option value="false">JNO</option>
+                    <option value="true">JYES</option>
+                </field>
+                <field name="thumbnailLabel.align" type="radio" default="right"
+                       label="Thumbnail Label Align Description" description="Horizontal text alignment."
+                       class="btn-group">
+                    <option value="right">right</option>
+                    <option value="center">center</option>
+                    <option value="left">left</option>
+                </field>
+                <field name="thumbnailLabel.itemsCount" type="radio" default="none"
+                       label="Thumbnail Label Items Count" description="Add the number of items in one per photo album."
+                       class="btn-group">
+                    <option value="none">none</option>
+                    <option value="title">title</option>
+                    <option value="description">description</option>
+                </field>
+                <field name="thumbnailHoverEffect" type="list" default="slideUp"
+                       label="Thumbnail Hover Effect" description="Thumbnail mouse hover effect."
+                       class="btn-group">
+                    <option value="slideUp">slideUp</option>
+                    <option value="slideDown">slideDown</option>
+                    <option value="slideLeft">slideLeft</option>
+                    <option value="slideRight">slideRight</option>
+                    <!-- Transit jQuery plugin is required for following additional values:
+
+'imageScale150', 'imageScale150Outside', 'scale120', 'overScale', 'overScaleOutside', 'scaleLabelOverImage', 'rotateCornerBR', 'rotateCornerBL', 'imageRotateCornerBR', 'imageRotateCornerBL', 'imageFlipHorizontal', 'imageFlipVertical'
+
+Include it in your <head>:
+<script type="text/javascript" src = "third.party/transit/jquery.transit.min.js"> </script> -->
+                </field>
+            </fieldset>
+            <fieldset name="colors" label="Colors">
+                <field name="theme" type="radio" default="default"
+                       label="Theme" description="Name of the theme"
+                       class="btn-group">
+                    <option value="default">default</option>
+                </field>
+                <field name="colorScheme" type="radio" default="none"
+                       label="Color Scheme" description="Gallery color scheme (breadcrumb and thumbnails)"
+                       class="btn-group">
+                    <option value="none">none</option>
+                </field>
+                <field name="colorSchemeViewer" type="radio" default="none"
+                       label="Color Scheme Viewer" description="Image viewercolor scheme"
+                       class="btn-group">
+                    <option value="none">none</option>
+                </field>
+            </fieldset>
+            <fieldset name="animation" label="Animation">
+                <field name="touchAnimation" type="radio" default="true"
+                       label="Touch Animation" description="Enable animation on touch event (= tap twice to show the image)"
+                       class="btn-group">
+                    <option value="false">JNO</option>
+                    <option value="true">JYES</option>
+                </field>
+                <field name="slideshowDelay" type="integer" default="3"
+                       label="Slideshow Delay"
+                       description="Photo autoplay speed in seconds (slideshow)"
+                       first="1"
+                       last="20"
+                       step="1"/>
+                <field name="thumbnailDisplayInterval" type="integer" default="4"
+                       label="Thumbnail Display Interval"
+                       description="Interval in ms between the display of 2 thumbnails"
+                       first="1"
+                       last="20"
+                       step="1"/>
+                <field name="thumbnailDisplayTransition" type="radio" default="true"
+                       label="Thumbnail Display Transition" description="Transition animation before displaying one thumbnail"
+                       class="btn-group">
+                    <option value="false">JNO</option>
+                    <option value="true">JYES</option>
+                </field>
+            </fieldset>
+            <fieldset name="Performances" label="Performances">
+                <field name="thumbnailLazyLoad" type="radio" default="true"
+                       label="Thumbnail Lazy Load" description="Lazy load of thumbnails image (images are loaded only when displayed in the viewport)"
+                       class="btn-group">
+                    <option value="false">JNO</option>
+                    <option value="true">JYES</option>
+                </field>
+                <field name="thumbnailLazyLoadTreshold" type="integer" default="100"
+                       label="Thumbnail Lazy Load Treshold"
+                       description="Extend the viewport area (in pixel) for thumbnails image lazy load"
+                       first="1"
+                       last="1000"
+                       step="1"/>
+                <field name="lazyBuild" type="radio" default="none"
+                       label="Lazy Build" description="Transition animation before displaying one thumbnail"
+                       class="btn-group">
+                    <option value="none">none</option>
+                    <option value="loadData">loadData</option>
+                    <option value="display">display</option>
+                </field>
+                <field name="lazyBuildTreshold" type="integer" default="150"
+                       label="Lazy Build Treshold"
+                       description="Shorten the viewport area height (in pixel) for lazyBuild."
+                       first="1"
+                       last="1000"
+                       step="1"/>
+            </fieldset>
+            <fieldset name="Layout" label="Layout">
+                <field name="paginationMaxItemsPerPage" type="integer" default="0"
+                       label="Pagination Max Items / Page"
+                       description="Maximum number of thumbnails per page (pagination) 0= pagination is disabled. Ignored when thumbnailWidth='auto' or thumbnailHeight='auto'."
+                       first="1"
+                       last="20000"
+                       step="1"/>
+                <field name="paginationMaxLinesPerPage" type="integer" default="0"
+                       label="Pagination Max Line / Page"
+                       description="Maximum number of thumbnail lines per page (pagination) 0= pagination is disabled. Ignored when thumbnailWidth='auto' or thumbnailHeight='auto'."
+                       first="1"
+                       last="50"
+                       step="1"/>
+
+                <field name="maxItemsPerLine" type="integer" default="5" label="MaxItems / Line"
+                       description="Maximum number of thumbnails per line. Ignored when thumbnailWidth='auto'. Default is 5."
+                       first="1"
+                       last="20"
+                       step="1"/>
+                <field name="galleryToolbarWidthAligned" type="radio" default="true"
+                       label="Gallery Toolbar Width Aligned" description="Toolbar is automatically resized to the width of the thumbnails area"
+                       class="btn-group">
+                    <option value="false">JNO</option>
+                    <option value="true">JYES</option>
+                </field>
+                <field name="galleryToolbarHideIcons" type="radio" default="false"
+                       label="Gallery Toolbar Hide Icons" description="Hide icons in toolbar (breadcrumb)"
+                       class="btn-group">
+                    <option value="false">JNO</option>
+                    <option value="true">JYES</option>
+                </field>
+                <field name="locationHash" type="radio" default="false"
+                       label="Location Hash"
+                       description="Browser back/forward navigation and Deep Linking of images and photo albums. Note: only one gallery per page should use this feature."
+                       class="btn-group">
+                    <option value="false">JNO</option>
+                    <option value="true">JYES</option>
+                </field>
+                <field name="viewerDisplayLogo" type="radio" default="false"
+                       label="Viewer Display Logo" description="Display logo over images (defined in CSS file)"
+                       class="btn-group">
+                    <option value="false">JNO</option>
+                    <option value="true">JYES</option>
+                </field>
+                <field name="breadcrumbAutoHideTopLevel" type="radio" default="false"
+                       label="Breadcrumb AutoHide" description="Breadcrumb AutoHide Top Level: The breadcrumb is hidden when on top navigation level."
+                       class="btn-group">
+                    <option value="false">JNO</option>
+                    <option value="true">JYES</option>
+                </field>
+            </fieldset>
+            <fieldset name="advanced">
+                <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
+                <field name="moduleclass_sfx" type="textarea" rows="3" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+                <field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+                <field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC"/>
+                <field name="cachemode" type="hidden" default="static">
+                    <option value="static"/>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
