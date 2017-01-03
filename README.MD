@@ -16,6 +16,8 @@ and more
 
 [More details](https://www.galaxiis.com/cedsmugmug-showcase/) 
 
+This is the **free version** the premium version can be bought together with support at [www.galaxiis.com](https://www.galaxiis.com)
+
 ## Demo
 [https://www.galaxiis.com/cedsmugmug-demo/](https://www.galaxiis.com/cedsmugmug-demo/)
 
