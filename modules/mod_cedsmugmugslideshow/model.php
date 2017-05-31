@@ -25,33 +25,17 @@ class CedSmugmugSlideShowModel
         $model->height = $params->get('height', 400);
         $model->moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
-        $pageStyle = $params->get('pageStyle', 'white');
-        $showSpeed = $params->get('showSpeed') == 1 ? 'true' : 'false';
-        $autoStart = $params->get('autoStart') == 1 ? 'true' : 'false';
-        $captions = $params->get('captions') == 1 ? 'true' : 'false';
-        $showLogo = $params->get('showLogo') == 1 ? 'true' : 'false';
-        $clickToImage = $params->get('clickToImage') == 1 ? 'true' : 'false';
-        $splashUrl = $params->get('splashurl');
-        $showThumbs = $params->get('showThumbs') == 1 ? 'true' : 'false';
-        $albumID = $params->get('albumID');
-        $albumKey = $params->get('albumKey');
-        $showButtons = $params->get('showButtons') == 1 ? 'true' : 'false';
-        $transparent = $params->get('transparent') == 1 ? 'true' : 'false';
-        $bgColor = $params->get('bgColor');
-        $crossFadeSpeed = $params->get('crossFadeSpeed');
-        $randomStart = $params->get('randomStart') == 1 ? 'true' : 'false';
-        $randomize = $params->get('randomize') == 1 ? 'true' : 'false';
-        $borderThickness = $params->get('borderThickness');
-        $borderColor = $params->get('borderColor');
+	    $model->autoStart = $params->get('autoStart', '1');
+	    $model->captions = $params->get('captions', '1');
+	    $model->playButton = $params->get('showButtons', '1');
+	    $model->navigation = $params->get('navigation', '1');
+	    $model->randomize = $params->get('randomize', '1');
+	    $model->transition = $params->get('transition', 'fade');
 
-        $flashVars = array();
-        $flashVars[] = "AlbumID=$albumID&AlbumKey=$albumKey&transparent=$transparent&bgColor=$bgColor&borderThickness=$borderThickness";
-        $flashVars[] = "borderColor=$borderColor&useInside=&endPoint=&mainHost=cdn.smugmug.com&VersionNos=2013072402";
-        $flashVars[] = "width=$model->width&height=$model->height&clickToImage=$clickToImage&showLogo=$showLogo&splash=$splashUrl";
-        $flashVars[] = "captions=$captions&showThumbs=$showThumbs&autoStart=$autoStart&showSpeed=$showSpeed&pageStyle=$pageStyle&showButtons=$showButtons&randomStart=$randomStart";
-        $flashVars[] = "randomize=$randomize&splash=$model->protocol%3A%2F%2Fwww.smugmug.com%2Fimg%2Fria%2FShizamSlides%2Fsmugmug_black.png&splashDelay=0&crossFadeSpeed=$crossFadeSpeed";
+	    $componentParams = JComponentHelper::getParams("com_cedsmugmug");
+	    $model->baseUrl = $componentParams->get('baseUrl');
 
-        $model->flashvars = implode("&", $flashVars);
+	    $model->albumKey = $params->get('albumKey');
 
         return $model;
     }

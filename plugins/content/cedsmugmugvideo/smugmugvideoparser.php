@@ -23,7 +23,7 @@ class plgContentSmugmugVideoParser
     var $defaultHeight = null;
     var $videoidkey = null;
 
-    function plgContentSmugmugVideoParser($defaultSize = "S", $defaultWidth = 425, $defaultHeight = 318)
+    function __construct($defaultSize = "S", $defaultWidth = 425, $defaultHeight = 318)
     {
         $this->defaultSize = $defaultSize;
         $this->defaultWidth = $defaultWidth;

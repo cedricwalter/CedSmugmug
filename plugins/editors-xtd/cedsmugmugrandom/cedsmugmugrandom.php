@@ -15,29 +15,17 @@ defined('_JEXEC') or die('Restricted access');
 
 class plgButtonCedsmugmugrandom extends JPlugin
 {
+	protected $autoloadLanguage = true;
 
-    protected $autoloadLanguage = true;
+	public function onDisplay($name)
+	{
+		$user  = JFactory::getUser();
 
-    public function onDisplay($name, $asset, $author)
-    {
-        $app = JFactory::getApplication();
-        $user = JFactory::getUser();
-        $extension = $app->input->get('option');
-
-        if ($asset == '')
-        {
-            $asset = $extension;
-        }
-
-        if (	$user->authorise('core.edit', $asset)
-            ||	$user->authorise('core.create', $asset)
-            ||	(count($user->getAuthorisedCategories($asset, 'core.create')) > 0)
-            ||	($user->authorise('core.edit.own', $asset) && $author == $user->id)
-            ||	(count($user->getAuthorisedCategories($extension, 'core.edit')) > 0)
-            ||	(count($user->getAuthorisedCategories($extension, 'core.edit.own')) > 0 && $author == $user->id))
-        {
-
-            $link = 'index.php?option=com_cedsmugmug&amp;view=article&amp;layout=smugmugrandom&amp;template=component&amp;e_name=' . $name . '&amp;asset=' . $asset . '&amp;author=' . $author;
+		if ($user->authorise('core.create', 'com_content')
+			|| $user->authorise('core.edit', 'com_content')
+			|| $user->authorise('core.edit.own', 'com_content'))
+		{
+            $link = 'index.php?option=com_cedsmugmug&amp;view=article&amp;layout=smugmugrandom&amp;template=component&amp;e_name=' . $name;
             JHtml::_('behavior.modal');
             $button = new JObject;
             $button->modal = true;
@@ -48,10 +36,6 @@ class plgButtonCedsmugmugrandom extends JPlugin
             $button->options = "{handler: 'iframe', size: {x: 800, y: 500}}";
 
             return $button;
-        }
-        else
-        {
-            return false;
         }
     }
 

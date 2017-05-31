@@ -12,6 +12,13 @@
 <config>
     <fieldset name="Settings" label="Settings">
 
+        <field name="baseUrl" type="text" default="" label="Base Url"
+               required="true"
+               description="Base url like cedricwalter.smugmug.com or www.smugmug.com"/>
+
+        <field name="nickname" type="text" default="" label="Smugmug nickname"
+               description="Your Smugmug Nickname. Example cedricwalter"/>
+
 
     </fieldset>
 </config>

@@ -15,8 +15,8 @@ defined('_JEXEC') or die('Restricted access');
 
 require_once(dirname(__FILE__) . '/model.php');
 
-$cedSmugmugSlideshowModel = new CedSmugmugSlideShowModel();
-$model = $cedSmugmugSlideshowModel->getModel($params);
+$class = new CedSmugmugSlideShowModel();
+$model = $class->getModel($params);
 
 
-require JModuleHelper::getLayoutPath('mod_cedsmugmugslideshow', $params->get('layout', 'flash'));
+require JModuleHelper::getLayoutPath('mod_cedsmugmugslideshow', $params->get('layout', 'default'));

@@ -19,7 +19,7 @@ require_once(dirname(__FILE__) . '/helper.php');
 $moduleClassSfx = htmlspecialchars($params->get('moduleclass_sfx'));
 $backLink = $params->get('backlink', 1);
 
-$helper = new ModCedSmugMugGalleryHelper($params);
+$helper = new ModCedSmugMugGalleryHelper();
 $module->content = $helper->render($params);
 
 require JModuleHelper::getLayoutPath('mod_cedsmugmuggallery', $params->get('layout', 'default'));

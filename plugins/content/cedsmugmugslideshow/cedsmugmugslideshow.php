@@ -21,21 +21,16 @@ require_once(dirname(__FILE__) . '/cedsmugmugslideshowparser.php');
 
 class plgContentCedSmugMugSlideShow extends JPlugin
 {
+	protected $autoloadLanguage = true;
 
-    public function __construct(& $subject, $config)
-    {
-        parent::__construct($subject, $config);
-        $this->loadLanguage();
-    }
-
-    public function onContentPrepare($context, &$row, &$params, $page = 0)
-    {
-        //Do not run in admin area and non HTML  (rss, json, error)
-        $app = JFactory::getApplication();
-        if ($app->isAdmin() || JFactory::getDocument()->getType() !== 'html')
-        {
-            return true;
-        }
+	function onContentPrepare($context, &$row, &$params, $page = 0)
+	{
+		//Do not run in admin area and non HTML  (rss, json, error)
+		$app = JFactory::getApplication();
+		if ($app->isAdmin() || JFactory::getDocument()->getType() !== 'html')
+		{
+			return true;
+		}
 
         if ($this->params->get('demo')) {
             $row->text .= '<h2>Plugin CedSmugMugSlideShow in demo mode</h2>

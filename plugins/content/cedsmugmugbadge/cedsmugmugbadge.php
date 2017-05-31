@@ -14,31 +14,28 @@
 // Don't allow direct access to the module.
 defined('_JEXEC') or die('Restricted access');
 
-jimport('joomla.html.parameter');
 jimport('joomla.plugin.plugin');
+jimport('joomla.html.parameter');
 
-require_once(dirname(__FILE__) . '/cedsmugmugbadgeparser.php');
+require_once(dirname(__FILE__) . '/parser.php');
 
 class plgContentCedSmugMugBadge extends JPlugin
 {
 
-    public function __construct(& $subject, $config)
-    {
-        parent::__construct($subject, $config);
-        $this->loadLanguage();
-    }
+	protected $autoloadLanguage = true;
 
-    public function onContentPrepare($context, &$row, &$params, $page = 0)
-    {
-        //Do not run in admin area and non HTML  (rss, json, error)
-        $app = JFactory::getApplication();
-        if ($app->isAdmin() || JFactory::getDocument()->getType() !== 'html')
-        {
-            return true;
-        }
-        if ($this->params->get('demo')) {
-            $row->text .= JText::_('PLG_CONTENT_CEDSMUGMUGBADGE_DEMO');
-        }
+	public function onContentPrepare($context, &$row, &$params, $page = 0)
+	{
+		//Do not run in admin area and non HTML  (rss, json, error)
+		$app = JFactory::getApplication();
+		if ($app->isAdmin() || JFactory::getDocument()->getType() !== 'html')
+		{
+			return true;
+		}
+
+		if (intval($this->params->get('demo', '0'))) {
+			$row->text .= JText::_('PLG_CONTENT_CEDSMUGMUGRANDOM_DEMO');
+		}
 
         $parser = new plgContentCedSmugMugBadgeParser();
 
@@ -51,13 +48,13 @@ class plgContentCedSmugMugBadge extends JPlugin
         foreach ($models as $model) {
             $html = $this->doForModel($model);
 
-            $row->text = str_replace($model->matches, $html, $row->text);
+	        $row->text = str_replace($model->matches, $html, $row->text);
         }
 
         return true;
     }
 
-    public function doForModel($parserModel)
+    private function doForModel($parserModel)
     {
         $data = $this->getData($parserModel->url);
 
@@ -148,7 +145,7 @@ class plgContentCedSmugMugBadge extends JPlugin
         $document->addScript(JUri::base().'/media/com_cedsmugmug/js/zoom.js');
         $document->addScript(JUri::base().'/media/com_cedsmugmug/js/easing.js');
 
-        $document->addStyleSheet(JUri::base().'/media/com_cedsmugmug/css/zoom.css?v=3.0.1');
+        $document->addStyleSheet(JUri::base().'/media/com_cedsmugmug/css/zoom.css?v=3.2.6');
         $document->addScriptDeclaration("jQuery(window).on('load',  function() {
          jQuery('img').smoothZoom({
             // Options go here
@@ -189,15 +186,6 @@ class plgContentCedSmugMugBadge extends JPlugin
             $html .= '<div style="text - align: center;"><a href=" <?php echo $model->link ?>">Gallery</a></div>';
         }
 
-//<div style="text-align: center;">
-//    <a href="//www.galaxiis.com/cedsmugmug-showcase"
-//       style="font: normal normal normal 10px/normal arial; color: rgb(187, 187, 187); border-bottom: 0 none white; text-decoration: none; "
-//       onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"
-//       target="_blank"><strong>cedsmugmug</strong></a>
-//</div>
-
         return $html;
     }
-
-
 }

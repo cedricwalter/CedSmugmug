@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" version="3.4" client="site" method="upgrade">
     <name>CedSmugMug Slideshow | Galaxiis.com</name>
-    <creationDate>2016-12-31</creationDate>
+    <creationDate>2017-05-31</creationDate>
 
-    <version>3.0.1</version>
+    <version>3.2.6</version>
 
     <author>Galaxiis</author>
     <authorEmail>galaxiiscom@gmail.com</authorEmail>
@@ -37,11 +37,27 @@
                         message="note"
                         label="Please help us: vote, suggest and give us your opinion in the Joomla extensions directory. With this you will help us to increase our interest to modify and update the extension. Thank you very much."/>
                 <field
+                        name="downloadid"
+                        type="galaxiisdownloadid"
+                        message="download id"
+                />
+                <field
                         name="version_msg"
                         type="galaxiismessage"
                         message="version"
-                        version="3.0.1"
+                        version="3.2.6"
                         extension_name="CedSmugMug"/>
+
+                <field
+                        name="smugmugconfigchecker"
+                        type="smugmugconfigchecker"
+                        message="CedSmugmug configuration checker"
+                />
+
+                <field name="albumKey" type="smugmugalbum" default="1" label="Public Album"
+                       description="Album"
+                       class="btn-group">
+                </field>
 
                 <field name="height" type="integer" default="200" label="Height"
                        required="true"
@@ -58,116 +74,53 @@
                        last="1000"
                        step="1"/>
 
-                <field name="bgColor" type="color" default="000000" label="Background Color"
-                       required="true"
-                       validate="color"
-                       description="Specify a background color for the slideshow as opposed to being transparent."/>
-
-            </fieldset>
-
-            <fieldset name="flashslideshow" label="Flash Slideshow">
-
-                <field name="albumID" type="text" default="7421071" label="AlbumID"
-                       required="true"
-                       description="ID of album to show photos from
-          -> The album ID is located in the URL when viewing any of your albums, for instance in the url http://cmac.smugmug.com/gallery/2504559_f3ta9#131481399, the album id is the set of numbers after /gallery/ and before the #-symbol followed by the ImageID - in this example the AlbumID is 2504559
-          -> SEMI-REQUIRED You must either provide an AlbumID OR a feedURL as below or nothing works."/>
-
-                <field name="albumKey" type="text" default="53xgf" label="AlbumKey"
-                       required="true"
-                       description="Key of album to show photos from
-          The album key is located in the URL when viewing any of your albums, for instance in the url http://cmac.smugmug.com/gallery/2504559_f3ta9#131481399, the album key is the string of characters after /gallery/2504559_ and before the #-symbol followed by the ImageID - in this example the AlbumKey is f3ta9
-          SEMI-REQUIRED You must either provide an AlbumID and AlbumKey OR a feedURL as below or nothing works."/>
-
-                <field name="clickToImage" type="radio" default="0"
-                       label="clickToImage"
-                       description="Clicking on the image shown in the slideshow will take you to the image in its gallery"
-                       class="btn-group">
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
-                <field name="captions" type="radio" default="1" label="captions"
-                       description="Display image captions within the slideshow"
-                       class="btn-group">
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
-                <field name="showThumbs" type="radio" default="1" label="showThumbs"
-                       description="Show thumbnails"
-                       class="btn-group">
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
-                <field name="autoStart" type="radio" default="1" label="autoStart"
+                <field name="autoStart" type="radio" default="1" label="AutoStart"
                        description="Start playing the slideshow as soon as its loaded OR don't start until they click the show"
                        class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                <field name="showSpeed" type="radio" default="1" label="Show Speed"
-                       description="Display the slow/med/fast speed options"
-                       class="btn-group">
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
-                <field name="pageStyle" type="radio" default="black" label="Page Style"
-                       description="Page Style"
-                       class="btn-group">
-                    <option value="white">white</option>
-                    <option value="black">black</option>
-                </field>
-                <field name="showButtons" type="radio" default="1" label="showButtons"
-                       description="Whether to show any play/pause/next buttons"
-                       class="btn-group">
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
-                <field name="randomStart" type="radio" default="0" label="randomStart"
-                       description="Leaves the images in the original order but starts at a random location"
-                       class="btn-group">
-                    <option value="0">JNO</option>
-                    <option value="1">JYES</option>
-                </field>
-                <field name="randomize" type="radio" default="0" label="randomize"
+                <field name="randomize" type="radio" default="0" label="Randomize"
                        description="Shuffles the order of images in the slideshow and starts at the beginning"
                        class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                <field name="splashurl" type="text"
-                       default="//www.smugmug.com/img/ria/ShizamSlides/smugmug_black.png"
-                       label="splashurl" description="Url to an image you want to set as your splash image"/>
-                <field name="splashDelay" type="integer" default="1000" label="splashDelay milliseconds"
-                       description="The amount of time to have to splash show in milliseconds."
-                       first="0"
-                       last="1000"
-                       step="1"/>
-                <field name="crossFadeSpeed" type="integer" default="350" required="true" label="Cross FadeSpeed"
-                       description="The speed (in ms) of the crossfade." size="5"
-                       first="0"
-                       last="10000"
-                       step="50"/>
-                <field name="transparent" type="radio" default="1" label="transparent"
-                       description="This should just always be true, its if the slideshow is transparent or not, can also bgColor otherwise"
+                <field name="captions" type="radio" default="1" label="Captions"
+                       description="Display image captions within the slideshow"
                        class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                <field name="borderThickness" type="integer" default="1"
-                       label="Border Thickness"
-                       required="true"
+                <field name="navigation" type="radio" default="1" label="Navigation"
+                       description="Whether to show any play/pause/next buttons"
+                       class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="playButton" type="radio" default="1" label="Play Button"
+                       description="Whether to show play buttons"
+                       class="btn-group">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="transition" type="radio" default="fade" label="Transition"
+                       description="Whether to show play buttons"
+                       class="btn-group">
+                    <option value="fade">Fade</option>
+                    <option value="none">None</option>
+                </field>
+
+                <field name="speed" type="integer" default="3" label="Speed in seconds"
+                       description="Speed in seconds. default is 3"
                        first="0"
-                       last="10"
-                       step="1"
-                       description="Thickness of the border around each image"/>
-                <field name="Border Color" type="color" default="FF0000" label="borderColor"
-                       required="true"
-                       validate="color"
-                       description="Specify the color of the border. Both borderThickness AND borderColor must be specified for the border to show"/>
+                       last="1000"
+                       step="1"/>
             </fieldset>
             <fieldset name="advanced">
                 <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" description="JFIELD_ALT_MODULE_LAYOUT_DESC"/>
-                <field name="moduleclass_sfx" type="textarea" rows="3" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+                <field name="moduleclass_sfx" type="textarea" rows="3" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                       description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
                 <field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
                     <option value="1">JGLOBAL_USE_GLOBAL</option>
                     <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>

@@ -14,13 +14,6 @@
 // no direct access
 defined('_JEXEC') or die;
 
-require_once JPATH_COMPONENT_ADMINISTRATOR.'/liveupdate/liveupdate.php';
-if( JFactory::getApplication()->input->get('view','') == 'liveupdate') {
-    JToolBarHelper::preferences( 'com_cedsmugmug' );
-    LiveUpdate::handleRequest();
-    return;
-}
-
 jimport('joomla.application.component.controller');
 require_once(JPATH_COMPONENT . '/controller.php');
 

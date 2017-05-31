@@ -17,10 +17,10 @@ defined('_JEXEC') or die;
 
 $document = JFactory::getDocument();
 
-$document->addScript(JUri::base().'/media/com_cedsmugmug/js/zoom.js?v=3.0.1');
-$document->addScript(JUri::base().'/media/com_cedsmugmug/js/easing.js?v=3.0.1');
+$document->addScript(JUri::base().'/media/com_cedsmugmug/js/zoom.js?v=3.2.6');
+$document->addScript(JUri::base().'/media/com_cedsmugmug/js/easing.js?v=3.2.6');
 
-$document->addStyleSheet(JUri::base().'/media/com_cedsmugmug/css/zoom.css?v=3.0.1');
+$document->addStyleSheet(JUri::base().'/media/com_cedsmugmug/css/zoom.css?v=3.2.6');
 $document->addScriptDeclaration("jQuery(window).on('load',  function() {
          jQuery('img').smoothZoom({
             // Options go here

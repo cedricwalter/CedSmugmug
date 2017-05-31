@@ -21,67 +21,63 @@ require_once(dirname(__FILE__) . '/smugmugvideoparser.php');
 
 class plgContentCedSmugMugVideo extends JPlugin
 {
-    function plgContentCedSmugMugVideo(&$subject, $params)
-    {
-        parent::__construct($subject, $params);
-    }
+	protected $autoloadLanguage = true;
 
-    public function onContentPrepare($context, &$row, &$params, $page = 0)
-    {
-        //Do not run in admin area and non HTML  (rss, json, error)
-        $app = JFactory::getApplication();
-        if ($app->isAdmin() || JFactory::getDocument()->getType() !== 'html')
-        {
-            return true;
-        }
+	function onContentPrepare($context, &$row, &$params, $page = 0)
+	{
+		//Do not run in admin area and non HTML  (rss, json, error)
+		$app = JFactory::getApplication();
+		if ($app->isAdmin() || JFactory::getDocument()->getType() !== 'html')
+		{
+			return true;
+		}
 
-        if (intval($this->params->get('demo', '0'))) {
-            $row->text .= "<h1>".JText::_('PLG_CONTENT_CEDSMUGMUGVIDEO_DEMO')."</h1>";
-            $row->text .= "<h2>".JText::_('PLG_CONTENT_CEDSMUGMUGVIDEO_DEMO_NOTE')."</h2>";
+		if (intval($this->params->get('demo', '0'))) {
+			$row->text .= "<h1>".JText::_('PLG_CONTENT_CEDSMUGMUGVIDEO_DEMO')."</h1>";
+			$row->text .= "<h2>".JText::_('PLG_CONTENT_CEDSMUGMUGVIDEO_DEMO_NOTE')."</h2>";
 
-            $row->text .= "<h3>".JText::_('PLG_CONTENT_CEDSMUGMUGVIDEO_DEMO_EX1')."</h3>";
-            $row->text .= "{smugmugvideo 7421071_53xgf}";
+			$row->text .= "<h3>".JText::_('PLG_CONTENT_CEDSMUGMUGVIDEO_DEMO_EX1')."</h3>";
+			$row->text .= "{smugmugvideo 7421071_53xgf}";
 
-            $row->text .= "<h3>".JText::_('PLG_CONTENT_CEDSMUGMUGVIDEO_DEMO_EX2')."</h3>";
-            $row->text .= "{smugmugvideo 7421071_53xgf S}";
+			$row->text .= "<h3>".JText::_('PLG_CONTENT_CEDSMUGMUGVIDEO_DEMO_EX2')."</h3>";
+			$row->text .= "{smugmugvideo 7421071_53xgf S}";
 
-            $row->text .= "<h3>".JText::_('PLG_CONTENT_CEDSMUGMUGVIDEO_DEMO_EX3')."</h3>";
-            $row->text .= "{smugmugvideo 7421071_53xgf 300 400}";
-        }
+			$row->text .= "<h3>".JText::_('PLG_CONTENT_CEDSMUGMUGVIDEO_DEMO_EX3')."</h3>";
+			$row->text .= "{smugmugvideo 7421071_53xgf 300 400}";
+		}
 
-        //simple performance check to determine whether bot should process further
-        if (strpos($row->text, '{smugmugvideo') === false) {
-            return true;
-        }
+		//simple performance check to determine whether bot should process further
+		if (strpos($row->text, '{smugmugvideo') === false) {
+			return true;
+		}
 
-        $defaultSize = $this->params->get('defaultSize', 'S');
-        $defaultWidth = intval($this->params->get('defaultWidth', 425));
-        $defaultHeight = intval($this->params->get('defaultHeight', 318));
+		$defaultSize = $this->params->get('defaultSize', 'S');
+		$defaultWidth = intval($this->params->get('defaultWidth', 425));
+		$defaultHeight = intval($this->params->get('defaultHeight', 318));
 
-        $parser = new plgContentSmugmugVideoParser($defaultSize, $defaultWidth, $defaultHeight);
+		$parser = new plgContentSmugmugVideoParser($defaultSize, $defaultWidth, $defaultHeight);
 
-        $document = JFactory::getDocument();
-        $document->addStyleSheet(JUri::base().'/media/plg_content_smugmugrandom/plgSmugMugRandom.css?v=3.0.1');
+		$document = JFactory::getDocument();
+		$document->addStyleSheet(JUri::base().'/media/plg_content_smugmugrandom/plgSmugMugRandom.css?v=3.2.6');
 
-        $models = $parser->parse($row->text);
-        foreach ($models as $model) {
-            $html = $this->init($model->movieId, $model->movieKey, $model->width, $model->height);
-            $row->text = str_replace($model->matches, $html, $row->text);
-        }
+		$models = $parser->parse($row->text);
+		foreach ($models as $model) {
+			$html = $this->init($model->movieId, $model->movieKey, $model->width, $model->height);
+			$row->text = str_replace($model->matches, $html, $row->text);
+		}
+		return true;
+	}
 
-        return true;
-    }
+	private function init($movieId, $movieKey, $width = 640, $height = 480)
+	{
+		$flashVar = "e=1&i=$movieId&k=$movieKey";
+		$flashVarEncoded = base64_encode($flashVar);
 
-    private function init($movieId, $movieKey, $width = 640, $height = 480)
-    {
-        $flashVar = "e=1&i=$movieId&k=$movieKey";
-        $flashVarEncoded = base64_encode($flashVar);
+		$protocol = JFactory::getApplication()->isSSLConnection() ? "https" : "http";
 
-        $protocol = JFactory::getApplication()->isSSLConnection() ? "https" : "http";
-
-        $html = '<!-- Copyright (C) 2013-2016 galaxiis.com All rights reserved. -->';
-        $html .= '<div class="plgSmugMugVideo">';
-        $html .= "<object width=\"$width\" height=\"$height\">
+		$html = '<!-- Copyright (C) 2013-2016 galaxiis.com All rights reserved. -->';
+		$html .= '<div class="plgSmugMugVideo">';
+		$html .= "<object width=\"$width\" height=\"$height\">
             <param name=\"movie\" value=\"".$protocol."://cdn.smugmug.com/ria/ShizVidz-2008042602.swf\" />
             <param name=\"allowFullScreen\" value=\"true\" />
             <param name=\"allowScriptAccess\" value=\"always\" />
@@ -89,10 +85,10 @@ class plgContentCedSmugMugVideo extends JPlugin
               <embed src=\"".$protocol."://cdn.smugmug.com/ria/ShizVidz-2008042602.swf\" flashVars=\"s=$flashVarEncoded\" width=\"$width\" height=\"$height\" type=\"application/x-shockwave-flash\" allowFullScreen=\"true\" allowScriptAccess=\"always\"></embed>
             </object>";
 
-        $html .= '<div class="plgSmugMugRandomLink"><a hef="www.galaxiis.com/cedsmugmug-showcase" target="new">CedSmugmug</a></div>';
+		$html .= '<div class="plgSmugMugRandomLink"><a hef="www.galaxiis.com/cedsmugmug-showcase" target="new">CedSmugmug</a></div>';
 
-        return $html;
-    }
+		return $html;
+	}
 
 }
 

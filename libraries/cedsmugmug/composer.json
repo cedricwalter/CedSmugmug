@@ -1,0 +1,11 @@
+{
+    "name": "galaxiis",
+    "description": "Galaxiis Framework Library",
+    "license": "MIT",
+
+    "require": {
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": ">=6.2.0",
+        "lildude/phpsmug": "^4.0"
+    }
+}

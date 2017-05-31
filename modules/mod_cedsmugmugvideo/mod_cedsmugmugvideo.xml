@@ -2,9 +2,9 @@
 <extension type="module" version="3.4" client="site" method="upgrade">
     <name>CedSmugmug Video Viewer | Galaxiis.com</name>
     <element>mod_cedsmugmugvideo</element>
-    <creationDate>2016-12-31</creationDate>
+    <creationDate>2017-05-31</creationDate>
 
-    <version>3.0.1</version>
+    <version>3.2.6</version>
 
     <author>Galaxiis</author>
     <authorEmail>galaxiiscom@gmail.com</authorEmail>
@@ -37,10 +37,15 @@
                         message="note"
                         label="Please help us: vote, suggest and give us your opinion in the Joomla extensions directory. With this you will help us to increase our interest to modify and update the extension. Thank you very much."/>
                 <field
+                        name="downloadid"
+                        type="galaxiisdownloadid"
+                        message="download id"
+                />
+                <field
                         name="version_msg"
                         type="galaxiismessage"
                         message="version"
-                        version="3.0.1"
+                        version="3.2.6"
                         extension_name="CedSmugMug"/>
 
             </fieldset>

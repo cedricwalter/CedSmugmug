@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.4" type="plugin" group="content" method="upgrade">
     <name>CedSmugmugBadge | Galaxiis.com</name>
-    <creationDate>2016-12-31</creationDate>
+    <creationDate>2017-05-31</creationDate>
 
     <copyright>Copyright (C) 2013-2016 galaxiis.com All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL 3.0</license>
 
-    <version>3.0.1</version>
+    <version>3.2.6</version>
 
     <description>PLG_CONTENT_CEDSMUGMUGBADGE_DESCRIPTION</description>
 
     <files>
         <filename plugin="cedsmugmugbadge">cedsmugmugbadge.php</filename>
-        <filename plugin="cedsmugmugbadge">cedsmugmugbadgeparser.php</filename>
+        <filename plugin="cedsmugmugbadge">parser.php</filename>
         <folder>language</folder>
         <filename>index.html</filename>
     </files>
@@ -29,14 +29,21 @@
                         message="note"
                         label="Please help us: vote, suggest and give us your opinion in the Joomla extensions directory. With this you will help us to increase our interest to modify and update the extension. Thank you very much."/>
                 <field
+                        name="downloadid"
+                        type="galaxiisdownloadid"
+                        message="download id"
+                />
+                <field
                         name="version_msg"
                         type="galaxiismessage"
                         message="version"
-                        version="3.0.1"
+                        version="3.2.6"
                         extension_name="CedSmugMug"/>
+            </fieldset>
 
-                <field name="demo" type="radio" default="0" label="PLG_CONTENT_CEDSMUGMUGBADGE_DEMO"
-                       description="PLG_CONTENT_CEDSMUGMUGBADGE_DEMO_DESC" class="btn-group">
+            <fieldset name="settings">
+                <field name="demo" type="radio" default="0" label="PLG_CONTENT_CEDSMUGMUGRANDOM_DEMO_LABEL"
+                       description="PLG_CONTENT_CEDSMUGMUGRANDOM_DEMO_DESCRIPTION" class="btn-group">
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.6" type="plugin" group="installer" method="upgrade">
+	<name>Installer - Install from Galaxiis</name>
+	<version>1.0.0</version>
+	<author>Galaxiis</author>
+	<authorEmail>galaxiiscom@gmail.com</authorEmail>
+	<authorUrl>www.galaxiis.com</authorUrl>
+	<copyright>Copyright (C) 2013-2016 galaxiis.com All rights reserved.</copyright>
+	<license>https://confluence.galaxiis.com/display/GAL/SOFTWARE+LICENSE+AGREEMENT</license>
+
+	<description>This plugin allows you to install packages from Galaxiis.com</description>
+
+	<files>
+		<filename plugin="galaxiis">galaxiis.php</filename>
+		<filename>index.html</filename>
+	</files>
+
+	<scriptfile>galaxiis.script.php</scriptfile>
+
+	<config addfieldpath="libraries/galaxiis/fields">
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+						name="message"
+						type="galaxiismessage"
+						message="note"
+						label="You need to specify your Download ID before you can receive updates for free and premium extension. Visit &lt;a target=&quot;_blank&quot; href=&quot;https://www.galaxiis.com/member&quot;&gt;https://www.galaxiis.com/member/&lt;/a&gt; AND login to get your personal Download Id."/>
+				<field
+						name="version_msg"
+						type="galaxiismessage"
+						message="version"
+						version="3.2.6"
+						extension_name="Galaxiis Updater"/>
+				<field name="download-id" type="text"
+					   required="true"
+					   default=""
+					   size="30"
+					   label="Download ID"
+					   description="Defines the parameters necessary to automatically update the extension. Visit https://www.galaxiis.com/member AND login to get your personal Download Id."
+				/>
+			</fieldset>
+
+		</fields>
+	</config>
+</extension>

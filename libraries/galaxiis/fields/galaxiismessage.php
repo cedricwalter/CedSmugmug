@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
 
 class JFormFieldGalaxiisMessage extends JFormField {
 
-    protected $type = 'galaxiismessage';
+	protected $type = 'galaxiismessage';
 
     protected function getInput() {
     	
@@ -45,7 +45,7 @@ class JFormFieldGalaxiisMessage extends JFormField {
     			break;
     		case 'version':
 				$html = array();
-       			$html[] = '<div class="alert alert-block">';
+       			$html[] = '<div class="alert alert-info">';
 				$html[] = '<button type="button" class="close" data-dismiss="alert">&times;</button>';
 				$html[] = '<strong>'.JText::_('JVERSION').': </strong>';
 				$html[] = $this->element['extension_name'].' '. $this->element['version'];

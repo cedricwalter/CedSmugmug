@@ -47,12 +47,9 @@ class plgContentCedSmugMugSlideShowParser
                     $albumKey = trim($result['key']);
                 }
 
-                $protocol = $isSSLConnection ? "https" : "http";
-                if ($this->startsWith($url, "http") && $protocol == "https") {
-                    $url = str_replace("http", "https", $url);
-                }
+	            $url = str_replace("http", "https", $url);
 
-                $model = new stdClass();
+	            $model = new stdClass();
                 $model->albumId = $albumID;
                 $model->albumKey = $albumKey;
                 $model->url = $url;
