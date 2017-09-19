@@ -67,7 +67,7 @@ class JFormFieldgalaxiisdownloadid extends JFormField
 			$html   = array();
 			$html[] = '<div class="alert alert-block">';
 			$html[] = '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-			$html[] = '<strong>' . JText::_('Galaxiis installer plugin is not installed. Did you remove it? you need it to get free/premium automatic update. it is recommended to reinstall the latest version of the product.') . '</strong>';
+			$html[] = '<strong>' . JText::_('LIB_GALAXIIS_NOT_INSTALLED') . '</strong>';
 			$html[] = '</div>';
 			echo implode('', $html);
 
@@ -80,7 +80,7 @@ class JFormFieldgalaxiisdownloadid extends JFormField
 			$html   = array();
 			$html[] = '<div class="alert alert-block">';
 			$html[] = '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-			$html[] = '<strong>' . JText::_('Galaxiis installer plugin is not enabled. You can not get free/premium automatic update.') . '</strong>';
+			$html[] = '<strong>' . JText::_('LIB_GALAXIIS_INSTALLED_NOT_ENABLED') . '</strong>';
 			$id     = self::getInstallerId();
 
 			$html[] = '<a target="_new" href="index.php?option=com_plugins&task=plugin.edit&extension_id=' . $id . '"> Enable Galaxiis Installer plugin</a>';
@@ -96,7 +96,7 @@ class JFormFieldgalaxiisdownloadid extends JFormField
 			$html   = array();
 			$html[] = '<div class="alert alert-block">';
 			$html[] = '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-			$html[] = '<strong>' . JText::_('Galaxiis installer installed but download id not set. You can not get free/premium automatic update.') . '</strong>';
+			$html[] = '<strong>' . JText::_('LIB_GALAXIIS_INSTALLED_NOT_ENABLED_ID_MISSING') . '</strong>';
 			$id     = self::getInstallerId();
 
 			$html[] = '<a  target="_new" href="index.php?option=com_plugins&task=plugin.edit&extension_id=' . $id . '"> Add your download-id in Galaxiis Installer plugin</a>';
@@ -109,7 +109,7 @@ class JFormFieldgalaxiisdownloadid extends JFormField
 		$html   = array();
 		$html[] = '<div class="alert alert-info">';
 		$html[] = '<button type="button" class="close" data-dismiss="info">&times;</button>';
-		$html[] = '<strong>' . JText::_('Galaxiis installer and download id set. You will get free/premium automatic update.') . '</strong>';
+		$html[] = '<strong>' . JText::_('LIB_GALAXIIS_INSTALLED_OK') . '</strong>';
 		$html[] = '</div>';
 		echo implode('', $html);
 

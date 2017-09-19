@@ -3,7 +3,7 @@
  * @package     cedSmugMug
  * @subpackage  com_cedsmugmug
  *
- * @copyright   Copyright (C) 2013-2016 galaxiis.com All rights reserved.
+ * @copyright   Copyright (C) 2013-2017 galaxiis.com All rights reserved.
  * @license     The author and holder of the copyright of the software is Cédric Walter. The licensor and as such issuer of the license and bearer of the
  *              worldwide exclusive usage rights including the rights to reproduce, distribute and make the software available to the public
  *              in any form is Galaxiis.com
@@ -27,9 +27,9 @@ class plgContentCedSmugMugVideo extends JPlugin
 	{
 		//Do not run in admin area and non HTML  (rss, json, error)
 		$app = JFactory::getApplication();
-		if ($app->isAdmin() || JFactory::getDocument()->getType() !== 'html')
+		if ($app->isClient('administrator') || JFactory::getDocument()->getType() !== 'html')
 		{
-			return true;
+			return;
 		}
 
 		if (intval($this->params->get('demo', '0'))) {
@@ -48,7 +48,7 @@ class plgContentCedSmugMugVideo extends JPlugin
 
 		//simple performance check to determine whether bot should process further
 		if (strpos($row->text, '{smugmugvideo') === false) {
-			return true;
+			return;
 		}
 
 		$defaultSize = $this->params->get('defaultSize', 'S');
@@ -65,7 +65,7 @@ class plgContentCedSmugMugVideo extends JPlugin
 			$html = $this->init($model->movieId, $model->movieKey, $model->width, $model->height);
 			$row->text = str_replace($model->matches, $html, $row->text);
 		}
-		return true;
+		return;
 	}
 
 	private function init($movieId, $movieKey, $width = 640, $height = 480)
@@ -75,7 +75,7 @@ class plgContentCedSmugMugVideo extends JPlugin
 
 		$protocol = JFactory::getApplication()->isSSLConnection() ? "https" : "http";
 
-		$html = '<!-- Copyright (C) 2013-2016 galaxiis.com All rights reserved. -->';
+		$html = '<!-- Copyright (C) 2013-2017 galaxiis.com All rights reserved. -->';
 		$html .= '<div class="plgSmugMugVideo">';
 		$html .= "<object width=\"$width\" height=\"$height\">
             <param name=\"movie\" value=\"".$protocol."://cdn.smugmug.com/ria/ShizVidz-2008042602.swf\" />

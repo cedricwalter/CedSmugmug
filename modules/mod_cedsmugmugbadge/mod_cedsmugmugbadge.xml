@@ -5,7 +5,7 @@
         client="site"
         method="upgrade">
     <name>CedSmugMug Badge | Galaxiis.com</name>
-    <creationDate>2017-05-31</creationDate>
+    <creationDate>2017-09-19</creationDate>
 
     <version>3.2.6</version>
 
@@ -13,7 +13,7 @@
     <authorEmail>galaxiiscom@gmail.com</authorEmail>
     <authorUrl>www.galaxiis.com</authorUrl>
 
-    <copyright>Copyright (C) 2013-2016 galaxiis.com All rights reserved.</copyright>
+    <copyright>Copyright (C) 2013-2017 galaxiis.com All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL 3.0</license>
 
     <description>A small module, highly customizable to display a badge of your SmugMug galleries (up to 4 galleries are

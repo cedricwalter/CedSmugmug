@@ -3,7 +3,7 @@
  * @package     cedSmugMug
  * @subpackage  com_cedsmugmug
  *
- * @copyright   Copyright (C) 2013-2016 galaxiis.com All rights reserved.
+ * @copyright   Copyright (C) 2013-2017 galaxiis.com All rights reserved.
  * @license     The author and holder of the copyright of the software is Cédric Walter. The licensor and as such issuer of the license and bearer of the
  *              worldwide exclusive usage rights including the rights to reproduce, distribute and make the software available to the public
  *              in any form is Galaxiis.com
@@ -27,9 +27,9 @@ class plgContentCedSmugMugSlideShow extends JPlugin
 	{
 		//Do not run in admin area and non HTML  (rss, json, error)
 		$app = JFactory::getApplication();
-		if ($app->isAdmin() || JFactory::getDocument()->getType() !== 'html')
+		if ($app->isClient('administrator') || JFactory::getDocument()->getType() !== 'html')
 		{
-			return true;
+			return;
 		}
 
         if ($this->params->get('demo')) {
@@ -42,7 +42,7 @@ class plgContentCedSmugMugSlideShow extends JPlugin
 
         //simple performance check to determine whether bot should process further
         if (strpos($row->text, '{smugmugslideshow') === false) {
-            return true;
+            return;
         }
 
         $parser = new plgContentCedSmugMugSlideShowParser();
@@ -53,7 +53,7 @@ class plgContentCedSmugMugSlideShow extends JPlugin
             $row->text = str_replace($model->matches, $html, $row->text);
         }
 
-        return true;
+        return;
     }
 
     public function doFlash($albumID, $albumKey)

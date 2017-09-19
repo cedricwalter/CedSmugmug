@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.4" type="plugin" group="editors-xtd" method="upgrade">
     <name>PLG_EDITORXTD_CEDSMUGMUGVIDEO</name>
-    <creationDate>2017-05-31</creationDate>
+    <creationDate>2017-09-19</creationDate>
 
-    <copyright>Copyright (C) 2013-2016 galaxiis.com All rights reserved.</copyright>
+    <copyright>Copyright (C) 2013-2017 galaxiis.com All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL 3.0</license>
 
     <version>3.2.6</version>

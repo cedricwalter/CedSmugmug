@@ -2,7 +2,7 @@
 <extension type="module" version="3.4" client="site" method="upgrade">
     <name>CedSmugmug Video Viewer | Galaxiis.com</name>
     <element>mod_cedsmugmugvideo</element>
-    <creationDate>2017-05-31</creationDate>
+    <creationDate>2017-09-19</creationDate>
 
     <version>3.2.6</version>
 
@@ -10,7 +10,7 @@
     <authorEmail>galaxiiscom@gmail.com</authorEmail>
     <authorUrl>www.galaxiis.com</authorUrl>
 
-    <copyright>Copyright (C) 2013-2016 galaxiis.com All rights reserved.</copyright>
+    <copyright>Copyright (C) 2013-2017 galaxiis.com All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL 3.0</license>
 
     <description>highly customizable module to display video from your SmugMug gallery using Adobe Flash.</description>

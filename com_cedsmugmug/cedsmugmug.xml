@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.4" method="upgrade">
     <name>com_cedsmugmug</name>
-    <creationDate>2017-05-31</creationDate>
+    <creationDate>2017-09-19</creationDate>
 
     <author>Galaxiis</author>
     <authorEmail>galaxiiscom@gmail.com</authorEmail>
@@ -9,7 +9,7 @@
 
     <version>3.2.6</version>
 
-    <copyright>Copyright (C) 2013-2016 galaxiis.com All rights reserved.</copyright>
+    <copyright>Copyright (C) 2013-2017 galaxiis.com All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL 3.0</license>
 
     <description>A set of modules, plugins extensions for SmugMug the famous paid digital photo sharing website</description>
